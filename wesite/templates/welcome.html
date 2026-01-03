@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome | MiniBlog{% endblock %}
+
+{% block content %}
+
+<section class="text-center py-5">
+
+    <!-- ICON / LOGO -->
+    <div class="mb-4">
+        <i class="bi bi-journal-richtext display-1 text-primary"></i>
+    </div>
+
+    <!-- MAIN HEADING -->
+    <h1 class="fw-bold display-5 mb-3">
+        Welcome to <span class="text-primary">MiniBlog</span>
+    </h1>
+
+    <!-- SUBTITLE -->
+    <p class="lead text-muted mx-auto mb-4" style="max-width: 650px;">
+        A simple and modern blogging platform where you can share your thoughts,
+        connect with readers, and express your ideas freely.
+    </p>
+
+    <!-- ACTION BUTTONS -->
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a href="/login" class="btn btn-primary btn-lg px-4">
+            <i class="bi bi-box-arrow-in-right me-2"></i> Login
+        </a>
+        <a href="/signup" class="btn btn-outline-primary btn-lg px-4">
+            <i class="bi bi-person-plus me-2"></i> Sign Up
+        </a>
+    </div>
+
+</section>
+
+<!-- FEATURES SECTION -->
+<section class="row text-center mt-5">
+
+    <div class="col-md-4 mb-4">
+        <i class="bi bi-pencil-square fs-1 text-primary mb-3"></i>
+        <h5 class="fw-semibold">Write Blogs</h5>
+        <p class="text-muted">
+            Create and publish your own blog posts easily.
+        </p>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <i class="bi bi-chat-dots fs-1 text-primary mb-3"></i>
+        <h5 class="fw-semibold">Engage</h5>
+        <p class="text-muted">
+            Comment and interact with posts from other users.
+        </p>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <i class="bi bi-heart fs-1 text-primary mb-3"></i>
+        <h5 class="fw-semibold">React</h5>
+        <p class="text-muted">
+            Like or dislike blogs and share your opinion.
+        </p>
+    </div>
+
+</section>
+
+{% endblock %}

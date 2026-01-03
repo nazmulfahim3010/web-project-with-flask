@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up | MiniBlog{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
+        <div class="card shadow-lg border-0 rounded-4">
+            <div class="card-body p-5">
+
+                <div class="text-center mb-4">
+                    <i class="bi bi-person-plus-fill fs-1 text-primary"></i>
+                    <h3 class="fw-bold mt-2">Create Account</h3>
+                    <p class="text-muted">Join MiniBlog today</p>
+                </div>
+
+                <form method="POST">
+
+                    <!-- USERNAME -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Username</label>
+                        <input type="text" class="form-control form-control-lg" name="user_name"
+                            placeholder="Choose a username" required>
+                    </div>
+
+                    <!-- EMAIL -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Email Address</label>
+                        <input type="email" class="form-control form-control-lg" name="email"
+                            placeholder="name@example.com" required>
+                    </div>
+
+                    <!-- FIRST NAME -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">First Name</label>
+                        <input type="text" class="form-control form-control-lg" name="first_name"
+                            placeholder="Your first name" required>
+                    </div>
+
+                    <!-- LAST NAME -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Last Name</label>
+                        <input type="text" class="form-control form-control-lg" name="last_name"
+                            placeholder="Your last name" required>
+                    </div>
+
+                    <!-- CONTACT (OPTIONAL) -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Contact (Optional)</label>
+                        <input type="text" class="form-control form-control-lg" name="contact"
+                            placeholder="Phone number">
+                    </div>
+
+                    <!-- BIO (OPTIONAL) -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Bio (Optional)</label>
+                        <textarea class="form-control" name="bio" rows="3"
+                            placeholder="Tell us a little about yourself..."></textarea>
+                    </div>
+
+                    <!-- PASSWORD -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Password</label>
+                        <input type="password" class="form-control form-control-lg" name="password"
+                            placeholder="Create a password" required>
+                    </div>
+
+                    <!-- CONFIRM PASSWORD -->
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">Confirm Password</label>
+                        <input type="password" class="form-control form-control-lg" name="passwordConfirm"
+                            placeholder="Confirm password" required>
+                    </div>
+
+                    <!-- SUBMIT -->
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            Sign Up
+                        </button>
+                    </div>
+
+                </form>
+
+                <div class="text-center mt-4">
+                    <p class="text-muted mb-0">
+                        Already have an account?
+                        <a href="/login" class="fw-semibold text-decoration-none">Login</a>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block title %}{{ blog.title }} | MiniBlog{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-lg-9 col-md-11">
+
+        <!-- BLOG CARD -->
+        <div class="card shadow border-0 rounded-4 mb-4">
+            <div class="card-body p-5">
+
+                <!-- TITLE -->
+                <h2 class="fw-bold mb-2">
+                    {{ blog.title }}
+                </h2>
+
+                <!-- META INFO -->
+                <p class="text-muted mb-4">
+                    <i class="bi bi-person-circle me-1"></i>
+                    {{ blog.author.user_name }}
+                    &nbsp;•&nbsp;
+                    <i class="bi bi-calendar-event me-1"></i>
+                    {{ blog.created_at.strftime('%d %b %Y') }}
+                </p>
+
+                <!-- BLOG CONTENT -->
+                <div class="fs-5 lh-lg">
+                    {{ blog.mini_blog | replace('\n', '<br>') | safe }}
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ACTIONS -->
+        <div class="d-flex gap-3 mb-5">
+            <button class="btn btn-outline-success">
+                <i class="bi bi-hand-thumbs-up me-1"></i> Like
+            </button>
+            <button class="btn btn-outline-danger">
+                <i class="bi bi-hand-thumbs-down me-1"></i> Dislike
+            </button>
+        </div>
+
+        <!-- COMMENTS SECTION -->
+        <div class="card shadow-sm border-0 rounded-4">
+            <div class="card-body p-4">
+
+                <h5 class="fw-bold mb-3">
+                    <i class="bi bi-chat-dots me-1"></i> Comments
+                </h5>
+
+                {% if blog.comments %}
+                {% for comment in blog.comments %}
+                <div class="mb-3 pb-3 border-bottom">
+                    <div class="fw-semibold">
+                        {{ comment.user.user_name }}
+                    </div>
+                    <small class="text-muted">
+                        {{ comment.created_at.strftime('%d %b %Y, %I:%M %p') }}
+                    </small>
+                    <p class="mt-2 mb-0">
+                        {{ comment.comment_text }}
+                    </p>
+                </div>
+                {% endfor %}
+                {% else %}
+                <p class="text-muted">No comments yet. Be the first to comment!</p>
+                {% endif %}
+
+                <!-- ADD COMMENT (UI ONLY) -->
+                {% if current_user.is_authenticated %}
+                <form method="POST" class="mt-4">
+                    <div class="mb-3">
+                        <textarea class="form-control" name="comment" rows="3" placeholder="Write a comment..."
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        Post Comment
+                    </button>
+                </form>
+                {% else %}
+                <p class="text-muted mt-3">
+                    <a href="/login">Login</a> to write a comment.
+                </p>
+                {% endif %}
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
